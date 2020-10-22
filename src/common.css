@@ -1,0 +1,14 @@
+.timer {
+  display: flex;
+  justify-content: center;
+
+  text-align: center;
+  font-size: 50px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.field:not(:last-child) {
+  margin-right: 50px;
+}
