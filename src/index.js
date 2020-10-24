@@ -1,12 +1,5 @@
 import './common.css';
 
-const refs = {
-  daysEl: document.querySelector('div#timer-1 span[data-value="days"]'),
-  hoursEl: document.querySelector('div#timer-1 span[data-value="hours"]'),
-  minsEl: document.querySelector('div#timer-1 span[data-value="mins"]'),
-  secsEl: document.querySelector('div#timer-1 span[data-value="secs"]'),
-};
-
 class CountdownTimer {
   constructor({ selector, targetDate }) {
     this.selector = selector;
@@ -14,9 +7,24 @@ class CountdownTimer {
   }
 
   setTimer() {
+    const refs = {
+      daysEl: document.querySelector(
+        `div${this.selector} span[data-value="days"]`,
+      ),
+      hoursEl: document.querySelector(
+        `div${this.selector} span[data-value="hours"]`,
+      ),
+      minsEl: document.querySelector(
+        `div${this.selector} span[data-value="mins"]`,
+      ),
+      secsEl: document.querySelector(
+        `div${this.selector} span[data-value="secs"]`,
+      ),
+    };
+
     setInterval(() => {
       let currentDate = new Date();
-      let time = timer.targetDate - currentDate;
+      let time = this.targetDate - currentDate;
       let timeComponents = getTimeComponents(time);
 
       refs.daysEl.textContent = pad(timeComponents.days);
